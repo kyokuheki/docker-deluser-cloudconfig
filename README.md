@@ -1,5 +1,5 @@
 # docker-delete-diffusers
-delete users which is absent from cloud-config.yml
+get diff users between `cloud-config.yml` and `/etc/passwd`
 
 ## build
 
@@ -13,7 +13,7 @@ docker build -t kyokuheki/diffusers
 docker run -i -v/var/lib/coreos-install/user_data:/config.yml:ro -v/etc/passwd:/passwd:ro kyokuheki/diffusers
 ```
 
-## run on CoreOS
+## delete users that are present in /etc/passwd but don't exist in cloud-config.yml
 
 ```shell
 j="`docker run -i -v/var/lib/coreos-install/user_data:/config.yml:ro -v/etc/passwd:/passwd:ro kyokuheki/diffusers`"
