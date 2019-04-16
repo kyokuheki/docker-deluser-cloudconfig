@@ -29,8 +29,7 @@ done
 or
 
 ```shell
-wget https://raw.githubusercontent.com/kyokuheki/docker-diffusers/master/delete_diffusers.sh
-bash delete_diffusers.sh
+bash <(curl -fsSL https://raw.githubusercontent.com/kyokuheki/docker-diffusers/master/delete_diffusers.sh)
 ```
 
 ## get user list from passwd
