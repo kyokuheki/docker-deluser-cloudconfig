@@ -11,8 +11,7 @@ function yesno () {
   done
 }
 
-docker build -t okd/getusers update_users
-j="`docker run -i -v/var/lib/coreos-install/user_data:/config.yml:ro  -v/etc/passwd:/passwd:ro okd/getusers`"
+j="`docker run -i -v/var/lib/coreos-install/user_data:/config.yml:ro  -v/etc/passwd:/passwd:ro kyokuheki/diffusers`"
 echo $j | jq
 invalid=(`echo $j | jq -r .invalid[]`)
 
