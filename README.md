@@ -25,3 +25,23 @@ do
   sudo userdel -r $u
 done
 ```
+
+or
+
+```shell
+wget https://raw.githubusercontent.com/kyokuheki/docker-diffusers/master/delete_diffusers.sh
+bash delete_diffusers.sh
+```
+
+## get user list from passwd
+
+```shell
+sudo cat /etc/passwd | docker run -i --entrypoint=python kyokuheki/diffusers /getusers_passwd.py -
+```
+
+
+## get user list from cloud-config.yml
+
+```shell
+sudo cat /var/lib/coreos-install/user_data | docker run -i --entrypoint=python kyokuheki/diffusers /getusers_cloudconfig.py -
+```
