@@ -6,6 +6,11 @@ invalid=(`echo $j | jq -r .invalid[]`)
 
 for u in ${invalid[@]}
 do
+  if `id -u $u` -lt 1000
+  then
+    echo user $u was skipped.
+    continue
+  fi
   sudo userdel -r $u
-  echo The user $u has been deleted.
+  echo user $u has been deleted.
 done
