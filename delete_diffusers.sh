@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 
 j="`docker run -i -v/var/lib/coreos-install/user_data:/config.yml:ro  -v/etc/passwd:/passwd:ro kyokuheki/diffusers`"
-echo "$j" | jq
-invalid=(`echo "$j" | jq -r '.invalid[]'`)
+#echo "$j" | jq
+#invalid=(`echo "$j" | jq -r '.invalid[]'`)
+jq <<<"$j"
+invalid=(`jq -r '.invalid[]' <<<"$j"`)
 
 for u in ${invalid[@]}
 do
