@@ -3,7 +3,7 @@
 import sys
 import argparse
 import json
-from pprint import pprint as p
+#from pprint import pprint as p
 from getusers_cloudconfig import getusers_cloudconfig
 from getusers_passwd import getusers_passwd
 
@@ -22,7 +22,7 @@ def diff(f_cc, f_passwd):
     }
     print('invalid: {}'.format(sorted(invalid_users)), file=sys.stderr)
     print('tba: {}'.format(sorted(tba_users)), file=sys.stderr)
-    p('{}'.format(d), stream=sys.stderr)
+    #p('{}'.format(d), stream=sys.stderr)
     jsonstr = json.dumps(d)
     print('{}'.format(jsonstr))
 
