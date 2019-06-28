@@ -4,7 +4,7 @@ j="`docker run -i -v/var/lib/coreos-install/user_data:/config.yml:ro  -v/etc/pas
 echo "JSON: $j"
 #echo "$j" | jq
 #invalid=(`echo "$j" | jq -r '.invalid[]'`)
-jq -rS '.' <<<"$j"
+jq -rS '.' <<<"$j" | cat
 invalid=(`jq -r '.invalid[]' <<<"$j"`)
 
 for u in ${invalid[@]}
