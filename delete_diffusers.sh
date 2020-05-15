@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-j="`docker run -i -v/var/lib/coreos-install/user_data:/config.yml:ro  -v/etc/passwd:/passwd:ro kyokuheki/diffusers`"
+source /etc/os-release
+j="`docker run -i -v/var/lib/${ID}-install/user_data:/config.yml:ro  -v/etc/passwd:/passwd:ro kyokuheki/diffusers`"
 echo "JSON: $j"
 #echo "$j" | jq
 #invalid=(`echo "$j" | jq -r '.invalid[]'`)
