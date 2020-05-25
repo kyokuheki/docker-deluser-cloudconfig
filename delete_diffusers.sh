@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -eux
+set -ex
 
 source /etc/os-release
 docker pull kyokuheki/diffusers
