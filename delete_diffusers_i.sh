@@ -12,6 +12,7 @@ function yesno () {
 }
 
 source /etc/os-release
+docker pull kyokuheki/diffusers
 j="`docker run -i -v/var/lib/${ID}-install/user_data:/config.yml:ro  -v/etc/passwd:/passwd:ro kyokuheki/diffusers`"
 echo $j | jq
 invalid=(`echo $j | jq -r .invalid[]`)
