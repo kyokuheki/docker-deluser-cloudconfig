@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
+set -eux
+
 source /etc/os-release
+docker pull kyokuheki/diffusers
 j="`docker run -i -v/var/lib/${ID}-install/user_data:/config.yml:ro  -v/etc/passwd:/passwd:ro kyokuheki/diffusers`"
 echo "JSON: $j"
 #echo "$j" | jq
