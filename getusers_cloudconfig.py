@@ -5,8 +5,8 @@ import os
 import argparse
 from pprint import pprint as p
 import yaml
-coreos_users = ['root','core','fleet','systemd-coredump','systemd-timesync']
-ignored_users = '["arifumi","fujisaki","okd","kyokuheki","okuda"]'
+coreos_users = ['root','core','systemd-oom','systemd-coredump','systemd-timesync','fleet']
+ignored_users = '["kyokuheki","arifumi","fujisaki","okd","okuda"]'
 
 def getusers_cloudconfig(f):
     ignored = coreos_users + yaml.load(os.getenv('IGNORED_USERS', ignored_users), Loader=yaml.FullLoader)
