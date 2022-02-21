@@ -4,7 +4,7 @@ set -ex
 
 source /etc/os-release
 docker pull kyokuheki/diffusers
-j="`docker run -i -v/var/lib/${ID}-install/user_data:/config.yml:ro  -v/etc/passwd:/passwd:ro kyokuheki/diffusers`"
+j="`docker run -i --rm -v/var/lib/${ID}-install/user_data:/config.yml:ro  -v/etc/passwd:/passwd:ro kyokuheki/diffusers`"
 echo "JSON: $j"
 #echo "$j" | jq
 #invalid=(`echo "$j" | jq -r '.invalid[]'`)
